@@ -23,4 +23,5 @@ As of now, this isn't really "prod" ready.. it technically could work, but its n
 - Sign binaries and put it in the Release description
     - Each time a new release is found, confirm the signature matches the binary present. If it doesn't, reject it.
     - This will at least confirm its *YOU* that is deploying stuff to your server. As usual, **secure your d@mn signing key!**
+- In production mode, only pull Releases with the "Latest" tag- no pre-releases.
 - Downtime concerns: currently, the process needs to be fully killed before proceeding. It'd be nice to somehow get both the old and new version running, and then swap the ports somehow (idk how this is possible)
