@@ -23,7 +23,7 @@ type Release struct {
 }
 
 func main() {
-	err := godotenv.Load(".env")
+	err := godotenv.Load(".pipeline.env")
 	if err != nil {
 		panic(fmt.Sprintf("Could not find env file: %s", err))
 	}

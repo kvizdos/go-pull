@@ -15,3 +15,12 @@ PIPELINE_BUILD_OUT=./app
 ```
 
 The system will automatically make `./app` group `0700`, giving the owner (whoever runs the Go script) access to READ / WRITE / EXECUTE the app, and restricts all other access from group users or regular users.
+
+## Production Readiness
+
+As of now, this isn't really "prod" ready.. it technically could work, but its not super secure. Some ideas to make it prod ready are:
+- Automatically run the built binary as a different user
+- Sign binaries and put it in the Release description
+    - Each time a new release is found, confirm the signature matches the binary present. If it doesn't, reject it.
+    - This will at least confirm its *YOU* that is deploying stuff to your server. As usual, **secure your d@mn signing key!**
+- Downtime concerns: currently, the process needs to be fully killed before proceeding. It'd be nice to somehow get both the old and new version running, and then swap the ports somehow (idk how this is possible)

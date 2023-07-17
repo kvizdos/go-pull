@@ -42,10 +42,12 @@ func StopPreviousProcess() {
 		}
 
 		fmt.Println("Waiting for program to finish..")
-		time.Sleep(5 * time.Second)
+		time.Sleep(15 * time.Second)
 
 		if processState.Exited() {
-			panic("program could not be exited within timeframe")
+			runningVersion.Signal(os.Kill)
+			fmt.Println("Forcefully killing build..")
+			time.Sleep(10 * time.Second)
 		}
 
 		err = runningVersion.Release()
