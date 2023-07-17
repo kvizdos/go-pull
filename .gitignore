@@ -1,0 +1,5 @@
+.env
+.pipeline-version
+built
+go-pull-darwin
+go-pull-x86
