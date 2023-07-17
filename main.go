@@ -44,13 +44,13 @@ func main() {
 		if err != nil {
 			if err != nil && err.Error() == "no new version" && runningVersion != nil {
 				fmt.Println("no new version found")
-				time.Sleep(1 * time.Hour)
+				time.Sleep(5 * time.Minute)
 				continue
 			} else if err.Error() == "no new version" && runningVersion == nil {
 				fmt.Println("First run with pre-existing executable, no running executable.")
 			} else {
 				fmt.Println(err)
-				time.Sleep(1 * time.Hour)
+				time.Sleep(5 * time.Minute)
 				continue
 			}
 		}
@@ -72,7 +72,7 @@ func main() {
 		fmt.Println("Starting new process..")
 		StartNewProcess(os.Getenv("PIPELINE_BUILD_OUT"))
 
-		time.Sleep(1 * time.Hour)
+		time.Sleep(5 * time.Minute)
 	}
 }
 
